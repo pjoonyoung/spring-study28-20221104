@@ -72,7 +72,7 @@ public class ContentDao implements IDao {
 	public ArrayList<ContentDto> listDao() {
 		// TODO Auto-generated method stub
 		
-		String sql = "SELETE * FROM board ORDER BY mid DESC";// 게시판 번호로 내림차순(최신글이 가장 위로)
+		String sql = "SELECT * FROM board ORDER BY mid DESC";// 게시판 번호로 내림차순(최신글이 가장 위로)
 		
 		ArrayList<ContentDto> dtos = (ArrayList<ContentDto>) template.query(sql, new BeanPropertyRowMapper(ContentDto.class));
 		

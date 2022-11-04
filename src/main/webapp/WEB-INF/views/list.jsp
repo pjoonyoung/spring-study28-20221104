@@ -20,7 +20,7 @@
 		<c:forEach items="${list }" var="dto">
 		<tr align="center" height="40">
 			<td>${dto.mid }</td>
-			<td>${dto.writer }</td>
+			<td>${dto.mwriter }</td>
 			<td align="left" width="700">${dto.mcontent }</td>
 			<td><input type="button" value="×" onclick="javascript:window.location='delete?mid=${dto.mid }'"></td>
 		</tr>
