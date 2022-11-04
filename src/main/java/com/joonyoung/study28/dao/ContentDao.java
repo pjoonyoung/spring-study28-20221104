@@ -22,8 +22,27 @@ public class ContentDao implements IDao {
 	}
 
 	@Override
-	public void deleteDao(String mid) {
+	public void deleteDao(final String mid) {
 		// TODO Auto-generated method stub
+		
+		
+		
+		this.template.update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				// TODO Auto-generated method stub
+				
+				String sql = "DELETE FROM board WHERE mid=?";
+				
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				
+				pstmt.setString(1, mid);
+				
+				return pstmt;
+			}
+		});
+		
 		
 	}
 
@@ -53,7 +72,7 @@ public class ContentDao implements IDao {
 	public ArrayList<ContentDto> listDao() {
 		// TODO Auto-generated method stub
 		
-		String sql = "SELETE * FROM board ODER BY mid DESC";// 게시판 번호로 내림차순(최신글이 가장 위로)
+		String sql = "SELETE * FROM board ORDER BY mid DESC";// 게시판 번호로 내림차순(최신글이 가장 위로)
 		
 		ArrayList<ContentDto> dtos = (ArrayList<ContentDto>) template.query(sql, new BeanPropertyRowMapper(ContentDto.class));
 		

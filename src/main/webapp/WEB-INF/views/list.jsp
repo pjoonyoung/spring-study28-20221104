@@ -22,7 +22,7 @@
 			<td>${dto.mid }</td>
 			<td>${dto.writer }</td>
 			<td align="left" width="700">${dto.mcontent }</td>
-			<td><input type="button" value="×" onclick="javascript:window.location='delete'"></td>
+			<td><input type="button" value="×" onclick="javascript:window.location='delete?mid=${dto.mid }'"></td>
 		</tr>
 		</c:forEach>
 		<tr>

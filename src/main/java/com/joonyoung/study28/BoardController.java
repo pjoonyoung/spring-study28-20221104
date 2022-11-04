@@ -56,7 +56,11 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "delete")
-	public String delete() {
+	public String delete(HttpServletRequest request) {
+		
+		String mid = request.getParameter("mid");
+		
+		dao.deleteDao(mid);
 		
 		return "redirect:list";
 	}
